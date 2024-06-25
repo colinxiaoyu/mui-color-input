@@ -7,6 +7,7 @@ export type ColorButtonProps = Omit<ButtonProps, 'children'> & {
   bgColor: string
   isBgColorValid: boolean
   disablePopover: boolean
+  children: string
 }
 
 export type ColorButtonElement = (props: ColorButtonProps) => JSX.Element
@@ -30,7 +31,9 @@ const ColorButton = (props: ColorButtonProps) => {
       }}
       className={`MuiColorInput-Button ${className || ''}`}
       {...restButtonProps}
-    />
+    >
+      {props.children}
+    </Styled.Button>
   )
 }
 
